@@ -1,0 +1,190 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+:root {
+  --key-size: 75px;
+  --board-size: calc(var(--key-size) * 4);
+}
+
+* {
+  box-sizing: border-box; /* default is `content-box` */
+  padding: 0;
+  margin: 0;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+
+  font-size: 1.2rem; 
+  /* The default font size for most browsers is 16 pixels, 
+   * `1.2rem` sets the base font size to 1.2 * 16 = 19.2 pixels */
+}
+
+body {
+  background: url(../assets/background.jpg) no-repeat center;
+  /* By default, background images are repeated both vertically and horizontally to fill the entire element's background area. 
+   * The no-repeat setting ensures that the image appears only once. */
+
+  background-size: cover;
+  /* The image is scaled up or down in size as needed to ensure that it completely covers the element's background area. 
+   * The scaling preserves the image's aspect ratio, meaning the image will not become distorted. */
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+  height: 100vh;
+  gap: 0.8em;
+}
+
+.wrapper {
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.215) 5px 5px 30px;
+  /* The first 5px is the horizontal offset. Positive values will offset the shadow to the right of the element.
+   * The second 5px is the vertical offset. Positive values will offset the shadow down from the element.
+   * The third 30px is the blur radius. This value determines how much the shadow spreads and blurs at the edges. 
+   * A larger value results in a softer and larger shadow. */
+
+  padding: 25px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  gap: 1em;
+  max-width: 15.625em;
+  /* `em` */
+  /* Font Size: 
+   * If the font size of the parent element is 16 pixels, then 1em equals 16 pixels. 
+   * If you set the font size of a child element to 2em, it would be twice the font size of the parent, thus 32 pixels.
+   */
+  /* Spacing and Dimensions: 
+   * Similarly, if you set margin, padding, width, or height using em, it will be a multiple of the font size. 
+   * For example, if margin: 1em; is used and the font size is 16 pixels, then the margin will be 16 pixels.
+   */ 
+
+  border: 5px solid white;
+  border-radius: 30px;
+}
+
+.board {
+  display: flex;
+}
+
+.keys-wrapper {
+  width: var(--board-size); /* setting board_size here */
+}
+
+.keys-operators-top {
+  display: flex;
+}
+
+.keys-operators-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.fa-regular {
+  color: black;
+  -webkit-text-stroke: 0.8px white;
+  /* 画笔大小，可以理解为icon的线条粗细 */
+}
+
+.fa-solid {
+  color: black;
+  -webkit-text-stroke: 2px white;
+  /* 画笔大小，可以理解为icon的线条粗细 */
+}
+
+.keys-numbers {
+  display: flex;
+  flex-direction: row-reverse; /* items start from the left by default, now reverse them */
+
+  flex-wrap: wrap; 
+  /* items wrap onto new lines as needed */
+  /* If the container is not wide enough to fit all .key items in one row, 
+   * items that cannot fit will move to the start of a new line, 
+   * again aligning from right to left on each new line.
+   */
+  /* From `:root`, `.keys-wrapper` and `.key`, we found that 
+   * size_of_button = key-size = 75px 
+   * board-size = 4 * key-size = 4 * 75px = 300px
+   * Also we have x - + = from the right side of the board, each of them occupies 75px, which is 1/4 
+   * then there are 3/4 space left, which means that each row can only be place three number_button 
+   */
+}
+
+#add,
+#substract,
+#multiply,
+#divide {
+  color: #0d4f9d;
+}
+
+#equals {
+  background-color: #0d4f9d;
+  color: white;
+}
+
+/* ????????????????? */
+#clear {
+  flex: 1;
+}
+
+/* Class Inheritance in CSS */
+/* Parent Class: `key`, Descendent Class: `key number` */
+/* The following properties will be inherited by all elements that have the class starting with `.key`, including all `number` button. */
+.key {
+  color: black;
+  border: none;
+  background-color: transparent;
+
+  width: var(--key-size); /* 75px */
+  height: var(--key-size);
+
+  border-radius: 10rem; 
+  /* `rem (root em)` */
+  /* rem in CSS is similar to the em unit but with a key difference: 
+   * while em is relative to the font size of its nearest parent element, 
+   * rem is always relative to the font size of the root element of the document (typically the <html> element). 
+   */
+  /* Base Size: */
+  /* The default font size for most browsers is 16 pixels, 
+   * so unless you've specified a different font size on the <html> element, 1rem will equal 16 pixels. 
+   */
+  /* Scaling: */ 
+  /* If you set the font size of the <html> element to 20 pixels, then 1rem would equal 20 pixels. 
+   * All spacing and font-sizing set in rem will scale accordingly, making it a powerful tool for responsive design.
+   */
+  
+  transition: all 0.2s ease;
+}
+
+/* ????????????????? */
+#number0 {
+  flex-basis: calc(var(--key-size) * 2);
+  border: 1px solid #bdcede;
+}
+
+/* hover: 盘旋 徘徊 */
+/* 当mouse enter的时候 hover就会响应 */
+/*
+.key:hover {
+  background-color: rgba(148, 148, 148, 1);
+}
+
+#equals:hover {
+  background-color: rgb(226, 238, 253, 1)
+}
+*/
+
+.credits,
+.credits a {
+  font-size: medium;
+  font-weight: 700;
+  color: white;
+  text-decoration: none;
+}
+
+.credits a:hover {
+  text-decoration: underline;
+}

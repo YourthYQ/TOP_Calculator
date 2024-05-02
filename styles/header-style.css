@@ -1,0 +1,22 @@
+header {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 0.3em;
+}
+  
+.result-wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+  border-radius: 10px;
+  
+  overflow: hidden;
+  padding: 8px;
+}
+  
+.result-wrapper {
+  color: black;
+  font-size: 1.3em;
+  height: 50px;
+}
