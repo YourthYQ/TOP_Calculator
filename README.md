@@ -6,4 +6,4 @@ GitHub Rep: [TOP_Calculator @YourthYQ](https://github.com/YourthYQ/TOP_Calculato
 
 Live Preview: [TOP_Calculator](https://yourthyq.github.io/TOP_Calculator/)
 
-Referred to: [crazy-e8](https://github.com/crazy-e8/Calculator) (Basic CSS Styling and Assests)
+Referred to: [Calculator](https://github.com/crazy-e8/Calculator) [@crazy-e8](https://github.com/crazy-e8) (Basic CSS Styling and Assests)
