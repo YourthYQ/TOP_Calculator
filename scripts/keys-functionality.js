@@ -22,10 +22,64 @@ const processInput = (value) => {
 const calculateResult = () => {
     try {
         console.log(resultWrapper.textContent);
-        resultValue = Number(eval(resultWrapper.textContent)).toFixed(13);
-        // eval() used to evaluate the input and do the calculation
-        // Number() used to type cast string to number
-        // .toFixed() used to format the decimal places
+        resultValue = String(eval(resultWrapper.textContent));
+
+        // set the maximum length of result the screee can show
+        const maxLength = 13
+
+        // check if the resultLength exceed the maximum length
+        if (resultValue.length > maxLength) {
+
+            // check if the result contains a dot
+            if (resultValue.indexOf(".") == -1) {
+
+                let After_E = String(resultValue.length - 1);
+                let Length_Of_Number_Between_Dot_And_E = maxLength - 3 - After_E.length;
+                let Number_After_First_Digit = "";
+
+                // Check if all trailing digit is 0, if so, then omit them
+                if (Number(resultValue.substring(1, 1 + Length_Of_Number_Between_Dot_And_E + 1)) == 0) {
+                    Number_After_First_Digit = "";
+                } else {
+                    Number_After_First_Digit = "." + resultValue.substring(1, 1 + Length_Of_Number_Between_Dot_And_E + 1);
+                }
+
+                resultValue = resultValue[0] 
+                + Number_After_First_Digit
+                + "e"
+                + After_E;
+
+            } else {
+                let Index_Of_Dot = resultValue.indexOf(".");
+                let Number_Before_Dot = resultValue.substring(0, Index_Of_Dot);
+                let Number_After_Dot = resultValue.substring(Index_Of_Dot + 1);
+                let Result_Without_Dot = Number_Before_Dot + Number_After_Dot;
+
+                let Number_After_First_Digit = "";
+
+                let After_E = String((Number_Before_Dot.length - 1) + (Number_After_Dot.length));
+                let Length_Of_Number_Between_Dot_And_E = maxLength - 3 - After_E.length;
+
+                // Check if all trailing digit is 0, if so, then omit them
+                if (Number(Result_Without_Dot.substring(1, 1 + Length_Of_Number_Between_Dot_And_E + 1)) == 0) {
+                    Number_After_First_Digit = "";
+                } else {
+                    Number_After_First_Digit = "." + Result_Without_Dot.substring(1, 1 + Length_Of_Number_Between_Dot_And_E + 1);
+                }
+
+                resultValue = Result_Without_Dot[0] 
+                + Number_After_First_Digit
+                + "e"
+                + After_E;
+                
+                // resultValue = Number(eval(resultWrapper.textContent)).toFixed(13);
+                // eval() used to evaluate the input and do the calculation
+                // Number() used to type cast string to number
+                // .toFixed() used to format the decimal places
+            }
+
+        }
+
         resultWrapper.textContent = resultValue;
     } catch {
         resultWrapper.textContent = "ERROR";
@@ -102,20 +156,22 @@ const colorHoverEffect = (key) => {
         btn = document.querySelector(`#clear`);
     }
 
-    if (key != "=" && key != "Enter") {
-        btn.style.backgroundColor = "rgba(148, 148, 148, 1)";
-        setTimeout(() => {
-            btn.style.backgroundColor = "white";
-        }, 35);
-        // asetTimeout() is used for a delay in the execution
-        /* Unit of time in `setTimeout()` is milliseconds
-         * 1 second = 1000 milliseconds
-         */
-    } else {
-        btn.style.backgroundColor = "rgba(226, 238, 253, 1)";
-        setTimeout(() => {
-            btn.style.backgroundColor = "#0d4f9d";
-        }, 35);
+    if (btn != null) {
+        if (key != "=" && key != "Enter") {
+            btn.style.backgroundColor = "rgba(148, 148, 148, 1)";
+            setTimeout(() => {
+                btn.style.backgroundColor = "white";
+            }, 35);
+            // asetTimeout() is used for a delay in the execution
+            /* Unit of time in `setTimeout()` is milliseconds
+             * 1 second = 1000 milliseconds
+             */
+        } else {
+            btn.style.backgroundColor = "rgba(226, 238, 253, 1)";
+            setTimeout(() => {
+                btn.style.backgroundColor = "#0d4f9d";
+            }, 35);
+        }
     }
 }
 
