@@ -22,7 +22,11 @@ const processInput = (value) => {
 const calculateResult = () => {
     try {
         console.log(resultWrapper.textContent);
-        resultWrapper.textContent = eval(resultWrapper.textContent);
+        resultValue = Number(eval(resultWrapper.textContent)).toFixed(13);
+        // eval() used to evaluate the input and do the calculation
+        // Number() used to type cast string to number
+        // .toFixed() used to format the decimal places
+        resultWrapper.textContent = resultValue;
     } catch {
         resultWrapper.textContent = "ERROR";
     }
