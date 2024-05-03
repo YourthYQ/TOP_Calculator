@@ -21,12 +21,10 @@ const processInput = (value) => {
 
 const calculateResult = () => {
     try {
-        eval(resultWrapper.textContent);
+        resultWrapper.textContent = eval(resultWrapper.textContent);
     } catch {
         resultWrapper.textContent = "ERROR";
     }
-    resultValue = String(eval(resultWrapper.textContent));
-    resultWrapper.textContent = formatResult(resultValue);
 }
 
 function deleteLastEntry() {
@@ -40,6 +38,7 @@ function clearAll() {
     resultWrapper.textContent = "";
 }
 
+/*
 const formatResult = (resultValue) => {
     // set the maximum length of result the screee can show
     const maxLength = 13
@@ -98,9 +97,11 @@ const formatResult = (resultValue) => {
             // Number() used to type cast string to number
             // .toFixed() used to format the decimal places
         }
+
     }
     return resultValue;
 }
+*/
 
 
 
