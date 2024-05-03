@@ -61,6 +61,8 @@ const formatResult = (resultValue) => {
                 Number_After_First_Digit = "." + resultValue.substring(1, 1 + Length_Of_Number_Between_Dot_And_E + 1);
             }
 
+            // This Calculator does not round the last digit for case in this if-statement!
+
             resultValue = resultValue[0] 
             + Number_After_First_Digit
             + "e"
@@ -83,6 +85,8 @@ const formatResult = (resultValue) => {
             } else {
                 Number_After_First_Digit = "." + Result_Without_Dot.substring(1, 1 + Length_Of_Number_Between_Dot_And_E + 1);
             }
+
+            // This Calculator does not round the last digit for case in this if-statement!
 
             resultValue = Result_Without_Dot[0] 
             + Number_After_First_Digit
