@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 :root {
-  --key-size: 75px;
+  --key-size: 85px;
   --board-size: calc(var(--key-size) * 4);
 }
 
@@ -37,7 +37,7 @@ body {
 
 .wrapper {
   background-color: white;
-  box-shadow: rgba(0, 0, 0, 0.215) 5px 5px 30px;
+  box-shadow: rgba(0, 0, 0, 0.215) 8px 8px 35px;
   /* The first 5px is the horizontal offset. Positive values will offset the shadow to the right of the element.
    * The second 5px is the vertical offset. Positive values will offset the shadow down from the element.
    * The third 30px is the blur radius. This value determines how much the shadow spreads and blurs at the edges. 
@@ -50,8 +50,8 @@ body {
   justify-content: center;
   align-items: center;
 
-  gap: 1em;
-  max-width: 15.625em;
+  gap: 0.4em;
+  max-width: 17.4em;
   /* `em` */
   /* Font Size: 
    * If the font size of the parent element is 16 pixels, then 1em equals 16 pixels. 
