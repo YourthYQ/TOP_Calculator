@@ -21,7 +21,7 @@ const processInput = (value) => {
 
 const calculateResult = () => {
     try {
-        console.log(resultWrapper.textContent);
+        eval(resultWrapper.textContent);
     } catch {
         resultWrapper.textContent = "ERROR";
     }
